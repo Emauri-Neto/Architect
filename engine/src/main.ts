@@ -1,6 +1,7 @@
 import { Elysia } from "elysia";
 import { HTTP_BASE, HTTP_PORT } from "@/utils/env";
 import { sheetRouter } from "./modules/sheets";
+import openapi from "@elysiajs/openapi";
 
 const app = new Elysia()
     .onError(({ code, error, set }) => {
@@ -20,6 +21,7 @@ const app = new Elysia()
             }
         }
     })
+    .use(openapi())
     .use(sheetRouter)
     .get(HTTP_BASE, () => "1.0.0")
     .listen(HTTP_PORT);
