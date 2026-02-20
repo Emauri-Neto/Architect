@@ -4,6 +4,8 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import '../styles.css'
 import '../components/fonts/index'
+import { ThemeProvider } from '@/components/theme/theme-provider'
+import Navbar from '@/components/navbar/navbar'
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -11,7 +13,8 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <>
+    <ThemeProvider defaultTheme="dark" storageKey="architect-ui-theme">
+      <Navbar />
       <Outlet />
       <TanStackDevtools
         config={{
@@ -24,6 +27,6 @@ function RootComponent() {
           },
         ]}
       />
-    </>
+    </ThemeProvider >
   )
 }

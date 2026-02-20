@@ -12,6 +12,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@base-ui/react": "^1.2.0",
     "@fontsource/source-code-pro": "^5.2.7",
     "@fontsource/source-serif-4": "^5.2.9",
     "@fontsource/space-grotesk": "^5.2.10",
@@ -20,9 +21,11 @@
     "@tanstack/react-router": "^1.132.0",
     "@tanstack/react-router-devtools": "^1.132.0",
     "@tanstack/router-plugin": "^1.132.0",
+    "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.545.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
