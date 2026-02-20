@@ -1,5 +1,13 @@
 import { randomUUIDv7 } from "bun";
-import { pgTable, text, uuid, timestamp, jsonb } from "drizzle-orm/pg-core";
+import { pgTable, text, uuid, timestamp, jsonb, pgEnum, integer } from "drizzle-orm/pg-core";
+
+export const classEnum = pgEnum("class", [
+    "COMBATENTE",
+    "ESPECIALISTA",
+    "OCULTISTA",
+    "MUNDANO",
+    "SOBREVIVENTE"
+]);
 
 export const sheetsTable = pgTable("sheet", {
     id: uuid("id").primaryKey().$defaultFn(randomUUIDv7),
@@ -9,6 +17,8 @@ export const sheetsTable = pgTable("sheet", {
         current: number;
         bonus: number;
     }>(),
+    class: classEnum("class").notNull(),
+    nex: integer("nex").notNull(),
     createdAt: timestamp("created_at").$defaultFn(() => new Date()),
     updatedAt: timestamp("updated_at")
         .$defaultFn(() => new Date())
